@@ -1,0 +1,16 @@
+button {
+  margin: 5px;
+}
+
+div {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+button.active {
+  background-color: #8fc7ff;
+  font-weight: bold;
+  color: white;
+}

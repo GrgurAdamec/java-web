@@ -1,0 +1,84 @@
+<form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
+  <label for="id">ID:</label>
+  <input type="number" id="id" formControlName="id" required />
+
+  <label for="name">{{ "FORM_NAME" | translate }}</label>
+  <input type="text" id="name" formControlName="name" required />
+
+  <label for="address">{{ "FORM_ADDRESS" | translate }}</label>
+  <input type="text" id="address" formControlName="address" required />
+
+  <label for="telephoneNumber">{{ "FORM_PHONE" | translate }}</label>
+  <input
+    type="number"
+    id="telephoneNumber"
+    formControlName="telephoneNumber"
+    required
+  />
+
+  <label for="email">{{ "FORM_EMAIL" | translate }}</label>
+  <input type="email" id="email" formControlName="email" required />
+
+  <label for="workingHours">{{ "FORM_WORKING_HOURS" | translate }}</label>
+  <input
+    type="number"
+    id="workingHours"
+    formControlName="workingHours"
+    required
+  />
+
+  <label for="currentlyOpen">{{ "FORM_CURRENTLY_OPEN" | translate }}:</label>
+  <select id="currentlyOpen" formControlName="currentlyOpen" required>
+    <option value="true">{{ "YES" | translate }}</option>
+    <option value="false">{{ "NO" | translate }}</option>
+  </select>
+
+  <label for="averageDeliveryTime"
+    >{{ "FORM_AVERAGE_DELIVERY_TIME" | translate }}:</label
+  >
+  <input
+    type="number"
+    id="averageDeliveryTime"
+    formControlName="averageDeliveryTime"
+    required
+  />
+
+  <label for="averageRating">{{ "FORM_AVERAGE_RATING" | translate }}:</label>
+  <input
+    type="number"
+    step="0.1"
+    id="averageRating"
+    formControlName="averageRating"
+    required
+  />
+
+  <label for="maxNumberOfOrders"
+    >{{ "FORM_MAX_NO_OF_ORDERS" | translate }}:</label
+  >
+  <input
+    type="number"
+    id="maxNumberOfOrders"
+    formControlName="maxNumberOfOrders"
+    required
+  />
+
+  <label for="michelinStar">{{ "FORM_MICHELIN_STAR" | translate }}:</label>
+  <input
+    type="number"
+    id="michelinStar"
+    formControlName="michelinStar"
+    required
+  />
+
+  <label for="description">{{ "FORM_DESCRIPTION" | translate }}:</label>
+  <textarea
+    id="description"
+    formControlName="description"
+    rows="4"
+    required
+  ></textarea>
+
+  <button type="submit" [disabled]="restaurantForm.invalid">
+    {{ "FORM_SUBMIT" | translate }}
+  </button>
+</form>

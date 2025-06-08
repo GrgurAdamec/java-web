@@ -1,0 +1,43 @@
+<div class="details-container" *ngIf="restaurant != null">
+  <h2>{{ restaurant.name }}</h2>
+  <p>{{ "TITLE" | translate }} {{ restaurant.address }}</p>
+
+  <p *ngIf="restaurant.currentlyOpen">
+    {{ "FORM_CURRENTLY_OPEN" | translate }}
+  </p>
+  <p *ngIf="!restaurant.currentlyOpen">
+    {{ "FORM_CURRENTLY_CLOSED" | translate }}
+  </p>
+
+  <p *ngIf="restaurant.workload > 0.75">
+    {{ "DETAILS_HIGH_WORKLOAD" | translate }}
+  </p>
+  <p *ngIf="restaurant.workload >= 0.35 && restaurant.workload < 0.75">
+    {{ "DETAILS_MEDIUM_WORKLOAD" | translate }}
+  </p>
+  <p *ngIf="restaurant.workload < 0.35">
+    {{ "DETAILS_LOW_WORKLOAD" | translate }}
+  </p>
+
+  <div *ngIf="reviews.length > 0" class="reviews-section">
+    <h3>{{ "DETAILS_REVIWS" | translate }}:</h3>
+    <ul>
+      <li *ngFor="let review of reviews">
+        <h4>{{ review.title }}</h4>
+        <p>{{ review.description }}</p>
+        <p>Grade: {{ review.grade }}</p>
+        <p>Date: {{ review.date | date }}</p>
+      </li>
+    </ul>
+  </div>
+
+  <button (click)="deleteRestaurant()">
+    {{ "DETAILS_DELETE_BUTTON" | translate }}
+  </button>
+  <button (click)="editRestaurant()">
+    {{ "DETAILS_EDIT_BUTTON" | translate }}
+  </button>
+  <button (click)="closeDetails()">
+    {{ "DETAILS_CLOSE_BUTTON" | translate }}
+  </button>
+</div>

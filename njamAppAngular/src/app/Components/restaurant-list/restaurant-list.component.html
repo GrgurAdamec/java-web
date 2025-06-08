@@ -1,0 +1,70 @@
+<div>
+  <h1>{{ "TITLE" | translate }}</h1>
+  <div style="font-weight: bold">
+    <span>{{ "NAME" | translate }}</span>
+    <span>{{ "FORM_CURRENTLY_OPEN" | translate }}</span>
+    <span>{{ "WORKLOAD" | translate }}</span>
+  </div>
+
+  <div style="margin: 20px">
+    {{ "BEST_RATED_LAST_MONTH" | translate }}
+    {{ bestRatedRestaurantLastMonth?.name }}
+  </div>
+
+  <div style="margin: 20px">
+    {{ "BEST_RATED_LAST_YEAR" | translate }}
+    {{ bestRatedRestaurantLastWeek?.name }}
+  </div>
+
+  <div
+    *ngFor="let restaurant of displayRestaurants"
+    (click)="selectRestaurant(restaurant.id)"
+  >
+    <span>{{ restaurant.name }}</span>
+
+    <span *ngIf="restaurant.currentlyOpen">{{ "YES" | translate }}</span>
+    <span *ngIf="!restaurant.currentlyOpen">{{ "NO" | translate }}</span>
+
+    <span *ngIf="restaurant.workload < 0.35"
+      ><span class="dot greendot"></span
+      >{{ "DETAILS_LOW_WORKLOAD" | translate }}</span
+    >
+    <span *ngIf="restaurant.workload >= 0.35 && restaurant.workload < 0.75"
+      ><span class="dot yellowdot"></span
+      >{{ "DETAILS_MEDIUM_WORKLOAD" | translate }}</span
+    >
+    <span *ngIf="restaurant.workload >= 0.75"
+      ><span class="dot reddot"></span
+      >{{ "DETAILS_HIGH_WORKLOAD" | translate }}</span
+    >
+  </div>
+
+  <div class="filter-container">
+    <button (click)="sortRestaurants()">
+      {{ "SORT_BY_WORKLOAD" | translate }}
+    </button>
+
+    <br />
+
+    <textarea
+      rows="1"
+      cols="20"
+      placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"
+      [(ngModel)]="filterText"
+      (ngModelChange)="filterRestaurants()"
+    ></textarea>
+  </div>
+
+  <button class="add-restaurant-button" (click)="toggleNewRestaurantForm()">
+    {{ "ADD_NEW" | translate }}
+  </button>
+  <div class="form-container" *ngIf="newRestaurantFormVisible">
+    <app-restaurant-new-restaurant-form></app-restaurant-new-restaurant-form>
+
+    <!-- <div>
+    <app-restaurant-details
+      [restaurant]="selectedRestaurant"
+    ></app-restaurant-details>
+  </div> -->
+  </div>
+</div>

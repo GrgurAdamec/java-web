@@ -1,0 +1,10 @@
+<div>
+  <button (click)="changeLanguage('hr')" [class.active]="selectedLang === 'hr'">
+    {{ "LANGUAGE_HR" | translate }}
+  </button>
+  <button (click)="changeLanguage('en')" [class.active]="selectedLang === 'en'">
+    {{ "LANGUAGE_EN" | translate }}
+  </button>
+</div>
+
+<router-outlet></router-outlet>

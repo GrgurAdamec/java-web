@@ -1,0 +1,42 @@
+span {
+  display: inline-block;
+  width: 170px;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.reddot {
+  background-color: #f00;
+}
+
+.yellowdot {
+  background-color: #ff0;
+}
+
+.greendot {
+  background-color: #0f0;
+}
+
+.filter-container {
+  margin: 10px;
+}
+
+.filter-container button {
+  margin: 10px;
+}
+
+.filter-container textarea {
+  margin: 10px;
+}
+
+.add-restaurant-button {
+  margin: 20px;
+}
